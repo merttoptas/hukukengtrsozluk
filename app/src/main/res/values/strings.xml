@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">hukukengtrsozluk</string>
+    <string name="tv_law">Hukuk Sözlüğü</string>
+    <string name="tv_law_subtitle">İngilizce ve Türkçe olarak yüzlerce hukuk kelimesi  bir arada.</string>
+    <string name="tv_word_learn">Kelime Öğrenme</string>
+    <string name="tv_word_subtitle">İngilizce ve Türkçe kelimelerle \nalıştırma yapın</string>
+    <string name="tv_words_search">Kelime Arama</string>
+    <string name="tv_words_search_subtitle">Yüzlerce İngilizce - Türkçe \nhukuk kelimesini bulabilirsin.</string>
+    <string name="tv_word_favorite">Favorilerim</string>
+    <string name="tv_favorite_subtitle">Favorilerine eklediğin  \nkelimeleri burada bulabilirsin.</string>
+    <string name="tv_about_us">Hakkımızda</string>
+    <string name="tv_about_us_subtitle">Uygulama hakkında bilgiler \nve daha fazlası..</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

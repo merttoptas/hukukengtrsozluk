@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/navigationHome"
+        android:icon="@drawable/ic_home"
+        android:title="Ana Sayfa" />
+
+    <item
+        android:id="@+id/navigationFavorites"
+        android:icon="@drawable/ic_favorite_border_black_24dp"
+        android:title="Favoriler" />
+
+    <item
+        android:id="@+id/navigationSearch"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Arama" />
+
+    <item
+        android:id="@+id/navigationSettings"
+        android:icon="@drawable/ic_user"
+        android:title="Ayarlar" />
+
+</menu>
