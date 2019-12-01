@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:gl="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main"
+    style="@style/parent.contentLayout">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foregroundGravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_law"
+                style="@style/viewParent.headerText"
+                android:text="@string/tv_law" />
+
+            <TextView
+                android:id="@+id/tv_law_subtitle"
+                style="@style/viewParent.headerText.contentText"
+                android:layout_marginBottom="20dp"
+                android:text="@string/tv_law_subtitle" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_words_learn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/home_gradient"
+                    android:minHeight="100dp"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textViewSub1Title"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="@string/tv_word_learn" />
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub1Title"
+                        android:text="@string/tv_word_subtitle" />
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/home_learn_word"
+                        android:contentDescription="TODO" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_words"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true">
+
+                <net.colindodd.gradientlayout.GradientRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:padding="10dp"
+                    gl:end_color="@color/gradientLightBlue"
+                    gl:orientation="LEFT_RIGHT"
+                    gl:start_color="@color/gradientViolet">
+
+                    <TextView
+                        android:id="@+id/textViewSub5Title"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="@string/tv_words_search" />
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub5Title"
+                        android:text="@string/tv_words_search_subtitle" />
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/transparen_bool" />
+
+                </net.colindodd.gradientlayout.GradientRelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_favorite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="25dp"
+                app:cardPreventCornerOverlap="true">
+
+                <net.colindodd.gradientlayout.GradientRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:padding="10dp"
+                    gl:end_color="@color/gradientOrange"
+                    gl:orientation="LEFT_RIGHT"
+                    gl:start_color="@color/gradientLightYellow2">
+
+                    <TextView
+                        android:id="@+id/textViewSub2Title"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="@string/tv_word_favorite" />
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub2Title"
+                        android:text="@string/tv_favorite_subtitle" />
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/home_ic_biology" />
+
+                </net.colindodd.gradientlayout.GradientRelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="15dp"
+                app:cardPreventCornerOverlap="true">
+
+                <net.colindodd.gradientlayout.GradientRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:minHeight="100dp"
+                    android:padding="10dp"
+                    gl:end_color="@color/gradientLightBlue"
+                    gl:orientation="LEFT_RIGHT"
+                    gl:start_color="@color/gradientLightGreen">
+
+                    <TextView
+                        android:id="@+id/textViewSub3Title"
+                        style="@style/viewParent.headerText.HomeCardTitle"
+                        android:text="@string/tv_about_us" />
+
+                    <TextView
+                        style="@style/viewParent.headerText.homeCardContent"
+                        android:layout_below="@id/textViewSub3Title"
+                        android:text="@string/tv_about_us_subtitle" />
+
+                    <ImageView
+                        style="@style/homeCardImage"
+                        android:maxHeight="90dp"
+                        android:src="@drawable/aboutus" />
+
+                </net.colindodd.gradientlayout.GradientRelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
