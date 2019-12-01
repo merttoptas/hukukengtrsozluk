@@ -35,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 app:cardCornerRadius="15dp"
+                android:onClick="wordsLearnOnClick"
                 app:cardPreventCornerOverlap="true">
 
                 <RelativeLayout
@@ -69,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="15dp"
+                android:onClick="wordsOnClick"
                 app:cardPreventCornerOverlap="true">
 
                 <net.colindodd.gradientlayout.GradientRelativeLayout
@@ -76,6 +78,7 @@
                     android:layout_height="match_parent"
                     android:minHeight="100dp"
                     android:padding="10dp"
+
                     gl:end_color="@color/gradientLightBlue"
                     gl:orientation="LEFT_RIGHT"
                     gl:start_color="@color/gradientViolet">
@@ -99,11 +102,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardview_favorite"
+                android:id="@+id/cardView_favorite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="25dp"
+                android:onClick="favoriteOnClick"
                 app:cardPreventCornerOverlap="true">
 
                 <net.colindodd.gradientlayout.GradientRelativeLayout
@@ -134,10 +138,11 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardview_about"
+                android:id="@+id/cardView_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:onClick="aboutUsOnClick"
                 app:cardCornerRadius="15dp"
                 app:cardPreventCornerOverlap="true">
 

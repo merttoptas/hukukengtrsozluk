@@ -1,28 +1,25 @@
 @file:Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
 package com.merttoptas.hukukengtrsozluk
-
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.core.graphics.toColorInt
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_words_activitiy.*
-import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.app_bar_main.toolbar
+import androidx.appcompat.widget.Toolbar
 
 class WordsActivity : AppCompatActivity() {
-
-    lateinit var searchFragment : SearchFragment
-    lateinit var  fm : FragmentManager
     lateinit  var fragmentid : String
+    var toolbar: Toolbar? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_words_activitiy)
+
+        toolbar = findViewById(R.id.toolbar)
+        toolbar!!.title = "Hukuk Sözlüğü"
         setSupportActionBar(toolbar)
-        supportActionBar!!.title = "Hukuk Sözlüğü"
-        supportActionBar!!.setDefaultDisplayHomeAsUpEnabled(true)
+
         navigation.setOnNavigationItemSelectedListener (mOnNavigationItemSelectedListener)
 
         when {

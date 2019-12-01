@@ -2,33 +2,28 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <TextView
+        <com.nicolettilu.hiddensearchwithrecyclerview.HiddenSearchWithRecyclerView
+            android:id="@+id/hidden_search_with_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="center"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="0dp"
-            android:text="@string/hello_blank_fragment" />
+            app:scrollToBottomBeforeHide="true"
+            app:scrollToTopBeforeShow="true"
+            app:filterWhileTyping="false"
+            app:visibleAtInit="true">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="68dp"
-            android:layout_marginBottom="252dp"
-            android:text="Button" />
-    </RelativeLayout>
+
+        </com.nicolettilu.hiddensearchwithrecyclerview.HiddenSearchWithRecyclerView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>

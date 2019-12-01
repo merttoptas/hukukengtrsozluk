@@ -45,5 +45,8 @@ dependencies {
     implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:1.0.0'
     implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:2.1.2'
 
+    implementation 'com.nicolettilu:hiddensearchwithrecyclerview:0.0.5'
+
+
 
 }
