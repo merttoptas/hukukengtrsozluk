@@ -42,5 +42,8 @@ dependencies {
 
     implementation 'net.colindodd:gradientlayout:1.2'
 
+    implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:1.0.0'
+    implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:2.1.2'
+
 
 }
