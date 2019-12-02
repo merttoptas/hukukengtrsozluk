@@ -1,8 +1,9 @@
-package com.merttoptas.hukukengtrsozluk
+package com.merttoptas.hukukengtrsozluk.Activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.merttoptas.hukukengtrsozluk.R
 import kotlinx.android.synthetic.main.activity_learn_words.*
 
 class LearnWordsActivity : AppCompatActivity() {

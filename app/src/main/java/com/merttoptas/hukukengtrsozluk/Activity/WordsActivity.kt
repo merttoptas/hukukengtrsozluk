@@ -1,12 +1,14 @@
 @file:Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
-package com.merttoptas.hukukengtrsozluk
+package com.merttoptas.hukukengtrsozluk.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_words_activitiy.*
 import androidx.appcompat.widget.Toolbar
+import com.merttoptas.hukukengtrsozluk.Fragment.FavoriteFragment
+import com.merttoptas.hukukengtrsozluk.Fragment.SearchFragment
+import com.merttoptas.hukukengtrsozluk.R
 
 class WordsActivity : AppCompatActivity() {
     lateinit  var fragmentid : String
@@ -26,16 +28,19 @@ class WordsActivity : AppCompatActivity() {
             intent.hasExtra("fragmentFavorite") -> {
                 fragmentid = intent.getStringExtra("fragmentFavorite")
 
-                navigation.selectedItemId = R.id.navigationFavorites
+                navigation.selectedItemId =
+                    R.id.navigationFavorites
 
             }
             intent.hasExtra("fragmentSearch") -> {
                 fragmentid = intent.getStringExtra("fragmentSearch")
-                navigation.selectedItemId = R.id.navigationSearch
+                navigation.selectedItemId =
+                    R.id.navigationSearch
             }
             intent.hasExtra("fragmentAboutUs") -> {
                 fragmentid = intent.getStringExtra("fragmentAboutUs")
-                navigation.selectedItemId = R.id.navigationAboutUs
+                navigation.selectedItemId =
+                    R.id.navigationAboutUs
             }
         }
 
@@ -46,16 +51,20 @@ class WordsActivity : AppCompatActivity() {
         when (menuItem.itemId){
 
             R.id.navigationFavorites -> {
-                val fragment = FavoriteFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.container, fragment,
+                val fragment =
+                    FavoriteFragment()
+                supportFragmentManager.beginTransaction().replace(
+                    R.id.container, fragment,
                     fragment.javaClass.simpleName).commit()
 
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.navigationSearch -> {
-                val fragment = SearchFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.container, fragment,
+                val fragment =
+                    SearchFragment()
+                supportFragmentManager.beginTransaction().replace(
+                    R.id.container, fragment,
                     fragment.javaClass.simpleName).commit()
                 return@OnNavigationItemSelectedListener true
             }

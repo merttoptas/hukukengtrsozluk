@@ -1,14 +1,14 @@
-package com.merttoptas.hukukengtrsozluk
+package com.merttoptas.hukukengtrsozluk.Activity
 
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
+import com.merttoptas.hukukengtrsozluk.Fragment.AboutUsFragment
+import com.merttoptas.hukukengtrsozluk.Fragment.FavoriteFragment
+import com.merttoptas.hukukengtrsozluk.Fragment.SearchFragment
+import com.merttoptas.hukukengtrsozluk.R
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,7 +35,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun wordsOnClick(view: View) {
-        val fragmentSearch = SearchFragment()
+        val fragmentSearch =
+            SearchFragment()
         fragmentId = fragmentSearch.toString()
         val intent = Intent(this, WordsActivity::class.java)
         intent.putExtra("fragmentSearch", fragmentId)
@@ -44,7 +45,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun favoriteOnClick(view: View) {
-        val fragmentFavorite = FavoriteFragment()
+        val fragmentFavorite =
+            FavoriteFragment()
         fragmentId = fragmentFavorite.toString()
         val intent = Intent(this, WordsActivity::class.java)
         intent.putExtra("fragmentFavorite", fragmentId)
@@ -53,7 +55,8 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun aboutUsOnClick(view: View) {
-        val fragmentAbout = AboutUsFragment()
+        val fragmentAbout =
+            AboutUsFragment()
         fragmentId = fragmentAbout.toString()
         val intent = Intent(this, WordsActivity::class.java)
         intent.putExtra("fragmentAboutUs", fragmentId)
