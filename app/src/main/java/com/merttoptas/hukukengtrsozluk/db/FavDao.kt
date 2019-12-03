@@ -11,10 +11,10 @@ interface FavDao {
     fun getWordsFavorites():List<Favorite>
 
     @Insert
-    fun instertWord(vararg favorite:Favorite)
+    fun insertWord(vararg favorite:Favorite)
 
-    @Query("Select favId from FAVORITE_TABLE where favWords = favWords")
-    fun getId(vararg favWors :String) : Int
+    //@Query("Select favId from FAVORITE_TABLE where favWords = :favWord")
+    //fun getId(vararg favWord :String) : Int
 
     @Query("DELETE from FAVORITE_TABLE where favId = :favId")
     fun deleteById(vararg favId :Int) :Int

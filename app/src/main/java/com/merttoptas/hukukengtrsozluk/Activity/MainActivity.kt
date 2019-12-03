@@ -9,6 +9,7 @@ import com.merttoptas.hukukengtrsozluk.Fragment.AboutUsFragment
 import com.merttoptas.hukukengtrsozluk.Fragment.FavoriteFragment
 import com.merttoptas.hukukengtrsozluk.Fragment.SearchFragment
 import com.merttoptas.hukukengtrsozluk.R
+import com.merttoptas.hukukengtrsozluk.utilities.Utils
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -28,39 +29,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun wordsLearnOnClick(view: View) {
-        val intent =Intent(this, LearnWordsActivity::class.java)
+        val intent = Intent(this, LearnWordsActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        intent.flags =Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
     fun wordsOnClick(view: View) {
-        val fragmentSearch =
-            SearchFragment()
+        val fragmentSearch = SearchFragment()
         fragmentId = fragmentSearch.toString()
-        val intent = Intent(this, WordsActivity::class.java)
-        intent.putExtra("fragmentSearch", fragmentId)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        startActivity(intent)
+
+        Utils.getIntent(this, WordsActivity::class.java, "fragmentSearch", fragmentId)
+
     }
     fun favoriteOnClick(view: View) {
-        val fragmentFavorite =
-            FavoriteFragment()
+        val fragmentFavorite = FavoriteFragment()
         fragmentId = fragmentFavorite.toString()
-        val intent = Intent(this, WordsActivity::class.java)
-        intent.putExtra("fragmentFavorite", fragmentId)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        startActivity(intent)
+
+        Utils.getIntent(this, WordsActivity::class.java, "fragmentFavorite", fragmentId)
+
     }
     fun aboutUsOnClick(view: View) {
-        val fragmentAbout =
-            AboutUsFragment()
+        val fragmentAbout = AboutUsFragment()
         fragmentId = fragmentAbout.toString()
-        val intent = Intent(this, WordsActivity::class.java)
-        intent.putExtra("fragmentAboutUs", fragmentId)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        startActivity(intent)
+        Utils.getIntent(this,  WordsActivity::class.java,"fragmentAboutUs", fragmentId)
     }
 }
