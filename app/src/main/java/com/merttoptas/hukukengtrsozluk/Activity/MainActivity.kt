@@ -38,19 +38,19 @@ class MainActivity : AppCompatActivity() {
         val fragmentSearch = SearchFragment()
         fragmentId = fragmentSearch.toString()
 
-        Utils.getIntent(this, WordsActivity::class.java, "fragmentSearch", fragmentId)
+        Utils.startIntent(this, WordsActivity::class.java, "fragmentSearch", fragmentId)
 
     }
     fun favoriteOnClick(view: View) {
         val fragmentFavorite = FavoriteFragment()
         fragmentId = fragmentFavorite.toString()
 
-        Utils.getIntent(this, WordsActivity::class.java, "fragmentFavorite", fragmentId)
+        Utils.startIntent(this, WordsActivity::class.java, "fragmentFavorite", fragmentId)
 
     }
     fun aboutUsOnClick(view: View) {
         val fragmentAbout = AboutUsFragment()
         fragmentId = fragmentAbout.toString()
-        Utils.getIntent(this,  WordsActivity::class.java,"fragmentAboutUs", fragmentId)
+        Utils.startIntent(this,  WordsActivity::class.java,"fragmentAboutUs", fragmentId)
     }
 }

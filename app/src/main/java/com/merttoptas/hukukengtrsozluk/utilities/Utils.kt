@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import androidx.annotation.Nullable
 import com.merttoptas.hukukengtrsozluk.Activity.WordsActivity
+import com.nicolettilu.hiddensearchwithrecyclerview.HiddenSearchWithRecyclerView
 
-class Utils {
+abstract class Utils {
 
     companion object{
+        private  lateinit var hiddenSearchWithInRecycler: HiddenSearchWithRecyclerView
 
-       fun getIntent(context:Context, className: Class<WordsActivity>, @Nullable intentName: String?, @Nullable fragmentId:String?)
+       fun startIntent(context:Context, className: Class<WordsActivity>, @Nullable intentName: String?, @Nullable fragmentId:String?)
         {
             val intent =Intent(context, className)
             intent.putExtra(intentName, fragmentId )
@@ -19,5 +21,7 @@ class Utils {
             return context.startActivity(intent)
 
         }
+
+
     }
 }

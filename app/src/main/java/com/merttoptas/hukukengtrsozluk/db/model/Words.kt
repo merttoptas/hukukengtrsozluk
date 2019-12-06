@@ -1,7 +1,7 @@
 package com.merttoptas.hukukengtrsozluk.db.model
 
 data class Words(
-    var wordsTr : String,
-    var wordsEng: String,
-    var id : String
+    val turkish : String = "",
+    val english: String = "",
+    var id : Int = 0
 )

@@ -1,45 +1,46 @@
 package com.merttoptas.hukukengtrsozluk.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.ToggleButton
+import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.merttoptas.hukukengtrsozluk.R
 import com.merttoptas.hukukengtrsozluk.db.model.Words
 
-class WordsAdapter(val context: Context, var mWordsList :ArrayList<Words>) : RecyclerView.Adapter<WordsAdapter.ViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsAdapter.ViewHolder {
-        val inflater = parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+class WordsAdapter (@NonNull options: FirestoreRecyclerOptions<Words?>?,  val context: Context) :
+    FirestoreRecyclerAdapter<Words, WordsAdapter.WordsHolder>(options!!) {
 
-        val view = inflater
-            .inflate(R.layout.word_item, parent,false)
 
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsHolder {
+        val v = LayoutInflater.from(parent.context).inflate(
+            R.layout.word_item,
+            parent, false
+        )
+        return WordsHolder(v)
     }
-
-    override fun getItemCount(): Int {
-        return  mWordsList.size
-    }
-
-    override fun onBindViewHolder(holder: WordsAdapter.ViewHolder, position: Int) {
-        val wordsList = mWordsList[position]
+    override fun onBindViewHolder(holder: WordsHolder, position: Int, model: Words) {
+        holder.tv_words.text = model.english
 
     }
 
-
-    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-          internal var tvWords :TextView
-          internal var tv_fav_button:ToggleButton
+    inner class WordsHolder(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
+        var tv_words: TextView
+        var tv_fav_button: ToggleButton
 
         init {
-            tvWords =itemView.findViewById(R.id.tv_words)
+            tv_words = itemView.findViewById(R.id.tv_words)
             tv_fav_button = itemView.findViewById(R.id.tv_fav_button)
-
         }
     }
+
+
+
 }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.merttoptas.hukukengtrsozluk.R
 import kotlinx.android.synthetic.main.word_item.view.*
 
-class FavoriteWordsAdapter (val favorites: List<FavoriteWordsAdapter>, val context: Context):
+class FavoriteWordsAdapter (private val favorites: List<FavoriteWordsAdapter>, val context: Context):
     RecyclerView.Adapter<FavoriteWordsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteWordsAdapter.ViewHolder {
         val inflater =parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
