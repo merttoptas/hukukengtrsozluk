@@ -32,7 +32,6 @@ class SearchFragment : Fragment() {
 
         val activity = activity as Context
 
-
          val hiddenSearchWithInRecycler = view.findViewById(R.id.hidden_search_with_recycler)
                 as HiddenSearchWithRecyclerView
         hiddenSearchWithInRecycler.hideAtScroll = true
@@ -44,26 +43,17 @@ class SearchFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
 
-        db.collection("words")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d("exists", "${document.id} => ${document.data}")
-
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.d("notExists", "Error getting documents: ", exception)
-            }
-
         val query: Query = wordsRef.orderBy(
             "english",
             Query.Direction.ASCENDING
         )
 
+
         val options: FirestoreRecyclerOptions<Words?>? = FirestoreRecyclerOptions.Builder<Words>()
             .setQuery(query, Words::class.java)
             .build()
+
+        Log.d("query", options.toString())
 
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -82,4 +72,11 @@ class SearchFragment : Fragment() {
         super.onStop()
         mAdapter!!.stopListening()
     }
+
+    override fun onPause() {
+        super.onPause()
+        mAdapter!!.stopListening()
+    }
+
+
 }

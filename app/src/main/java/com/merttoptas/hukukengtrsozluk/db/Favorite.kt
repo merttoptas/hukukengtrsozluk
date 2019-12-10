@@ -6,9 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "favorite_table")
 data class Favorite(
-    @ColumnInfo(name = "favWords")
-    var favWords:String
-)
-{ @PrimaryKey(autoGenerate = true)
-var favId :Int =0
+    @ColumnInfo(name = "favWordsEng")
+    var favWordsEng:String,
+
+    @ColumnInfo(name ="favWordsTr")
+    var favWordsTr:String)
+{
+    @PrimaryKey(autoGenerate = true)
+    var favId :Int =0
 }

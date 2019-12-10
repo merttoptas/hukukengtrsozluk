@@ -9,7 +9,6 @@ import com.nicolettilu.hiddensearchwithrecyclerview.HiddenSearchWithRecyclerView
 abstract class Utils {
 
     companion object{
-        private  lateinit var hiddenSearchWithInRecycler: HiddenSearchWithRecyclerView
 
        fun startIntent(context:Context, className: Class<WordsActivity>, @Nullable intentName: String?, @Nullable fragmentId:String?)
         {

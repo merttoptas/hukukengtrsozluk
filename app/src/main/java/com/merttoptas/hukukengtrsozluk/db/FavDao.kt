@@ -13,8 +13,8 @@ interface FavDao {
     @Insert
     fun insertWord(vararg favorite:Favorite)
 
-    //@Query("Select favId from FAVORITE_TABLE where favWords = :favWord")
-    //fun getId(vararg favWord :String) : Int
+    @Query("Select favId from FAVORITE_TABLE where favWordsEng = :favWord")
+    fun getId(vararg favWord :String) : Int
 
     @Query("DELETE from FAVORITE_TABLE where favId = :favId")
     fun deleteById(vararg favId :Int) :Int
