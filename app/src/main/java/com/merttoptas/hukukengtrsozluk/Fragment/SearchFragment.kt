@@ -7,11 +7,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ToggleButton
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 import com.google.firebase.firestore.Query
 import com.merttoptas.hukukengtrsozluk.R
 import com.merttoptas.hukukengtrsozluk.adapter.WordsAdapter
@@ -21,6 +23,8 @@ import com.nicolettilu.hiddensearchwithrecyclerview.HiddenSearchWithRecyclerView
 class SearchFragment : Fragment() {
     val db = FirebaseFirestore.getInstance()
     val wordsRef  = db.collection("words")
+    val getFavWords = Words()
+
 
     private var mAdapter: WordsAdapter? = null
     override fun onCreateView(
@@ -39,6 +43,11 @@ class SearchFragment : Fragment() {
         hiddenSearchWithInRecycler.scrollToBottomBeforeHide = true
         hiddenSearchWithInRecycler.scrollToTopBeforeShow = false
         hiddenSearchWithInRecycler.filterWhileTyping = true
+
+        val settings = FirebaseFirestoreSettings.Builder()
+            .setPersistenceEnabled(true)
+            .build()
+        db.firestoreSettings = settings
 
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
@@ -59,6 +68,8 @@ class SearchFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         mAdapter = WordsAdapter(options,activity)
         recyclerView.adapter = mAdapter
+
+
 
         return  view
     }

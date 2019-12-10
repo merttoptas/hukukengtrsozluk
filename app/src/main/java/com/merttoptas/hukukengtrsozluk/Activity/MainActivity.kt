@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setTypeFace()
+
     }
 
     private fun  setTypeFace(){
@@ -38,19 +39,19 @@ class MainActivity : AppCompatActivity() {
         val fragmentSearch = SearchFragment()
         fragmentId = fragmentSearch.toString()
 
-        Utils.startIntent(this, WordsActivity::class.java, "fragmentSearch", fragmentId)
+        Utils.startIntent(Utils.context, WordsActivity::class.java, "fragmentSearch", fragmentId)
 
     }
     fun favoriteOnClick(view: View) {
         val fragmentFavorite = FavoriteFragment()
         fragmentId = fragmentFavorite.toString()
 
-        Utils.startIntent(this, WordsActivity::class.java, "fragmentFavorite", fragmentId)
+        Utils.startIntent(Utils.context, WordsActivity::class.java, "fragmentFavorite", fragmentId)
 
     }
     fun aboutUsOnClick(view: View) {
         val fragmentAbout = AboutUsFragment()
         fragmentId = fragmentAbout.toString()
-        Utils.startIntent(this,  WordsActivity::class.java,"fragmentAboutUs", fragmentId)
+        Utils.startIntent(Utils.context,  WordsActivity::class.java,"fragmentAboutUs", fragmentId)
     }
 }
