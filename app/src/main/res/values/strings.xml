@@ -13,4 +13,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="law_dict">Hukuk Sözlüğü</string>
+    <string name="word_learn">Kelime Öğrenme</string>
+    <string name="learn_exercise">Hukuk - İngilizce Alıştırma</string>
 </resources>

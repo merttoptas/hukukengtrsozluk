@@ -19,7 +19,7 @@ class WordsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_words_activitiy)
 
         toolbar = findViewById(R.id.toolbar)
-        toolbar!!.title = "Hukuk Sözlüğü"
+        toolbar!!.title = getString(R.string.law_dict)
         setSupportActionBar(toolbar)
 
         navigation.setOnNavigationItemSelectedListener (mOnNavigationItemSelectedListener)

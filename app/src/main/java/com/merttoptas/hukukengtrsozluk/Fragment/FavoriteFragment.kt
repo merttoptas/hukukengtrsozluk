@@ -18,7 +18,9 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false)
+        val view : View= inflater.inflate(R.layout.fragment_favorite, container, false)
+
+        return view
     }
 
 
