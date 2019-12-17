@@ -18,16 +18,25 @@
             android:foregroundGravity="center_vertical"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_law"
-                style="@style/viewParent.headerText"
-                android:text="@string/tv_law" />
 
-            <TextView
-                android:id="@+id/tv_law_subtitle"
-                style="@style/viewParent.headerText.contentText"
-                android:layout_marginBottom="20dp"
-                android:text="@string/tv_law_subtitle" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center_horizontal"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_law"
+                    style="@style/viewParent.headerText"
+                    android:text="@string/tv_law" />
+
+                <TextView
+                    android:id="@+id/tv_law_subtitle"
+                    style="@style/viewParent.headerText.contentText"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/tv_law_subtitle" />
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_words_learn"
