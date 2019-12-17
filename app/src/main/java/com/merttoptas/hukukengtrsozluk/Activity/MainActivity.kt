@@ -1,10 +1,17 @@
 package com.merttoptas.hukukengtrsozluk.Activity
 
+import android.app.SearchManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import com.merttoptas.hukukengtrsozluk.Fragment.AboutUsFragment
 import com.merttoptas.hukukengtrsozluk.Fragment.FavoriteFragment
 import com.merttoptas.hukukengtrsozluk.Fragment.SearchFragment
@@ -24,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun  setTypeFace(){
-        val typeface = Typeface.createFromAsset(assets, "fonts/SourceSansPro-Regular.ttf")
+        val typeface = Typeface.createFromAsset(assets, "SourceSansPro-Regular.ttf")
         tv_law.typeface = typeface
         tv_law_subtitle.typeface = typeface
     }
@@ -54,4 +61,6 @@ class MainActivity : AppCompatActivity() {
         fragmentId = fragmentAbout.toString()
         Utils.startIntent(Utils.context,  WordsActivity::class.java,"fragmentAboutUs", fragmentId)
     }
+
+
 }

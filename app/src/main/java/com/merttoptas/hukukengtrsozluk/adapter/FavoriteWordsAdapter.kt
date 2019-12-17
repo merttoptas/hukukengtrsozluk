@@ -49,12 +49,18 @@ class FavoriteWordsAdapter (private val favorites: List<Favorite>, val context: 
         holder.favButton.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener{
             buttonView, isChecked ->
 
+            if(myId !=0){
+
+                holder.favButton.isChecked = true
+                var myId = dao.getId(favWord)
+                dao.deleteById(myId)
+                database.close()
+                holder.favButton.isChecked = false
+            }
             if(isChecked){
                 val favWords= Favorite(favorite.favWordsEng, favorite.favWordsTr)
                 dao.insertWord(favWords)
-
                 database.close()
-
                 holder.favButton.isChecked = true
             }else {
                 dao.deleteById(myId)
@@ -62,10 +68,6 @@ class FavoriteWordsAdapter (private val favorites: List<Favorite>, val context: 
                 holder.favButton.isChecked = false
             }
         })
-
-
-
-
 
     }
     class ViewHolder(view:View):RecyclerView.ViewHolder(view){

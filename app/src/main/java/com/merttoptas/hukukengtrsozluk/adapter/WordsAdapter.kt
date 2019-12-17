@@ -1,11 +1,14 @@
 package com.merttoptas.hukukengtrsozluk.adapter
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CompoundButton
+import android.widget.Filterable
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.annotation.NonNull
@@ -16,11 +19,11 @@ import com.merttoptas.hukukengtrsozluk.R
 import com.merttoptas.hukukengtrsozluk.db.Favorite
 import com.merttoptas.hukukengtrsozluk.db.model.Words
 import com.merttoptas.hukukengtrsozluk.utilities.Utils
-import kotlinx.android.synthetic.main.word_item.*
 
 
 class WordsAdapter (@NonNull options: FirestoreRecyclerOptions<Words?>?,  val context: Context) :
     FirestoreRecyclerAdapter<Words, WordsAdapter.WordsHolder>(options!!)
+
 
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordsHolder {
@@ -30,36 +33,68 @@ class WordsAdapter (@NonNull options: FirestoreRecyclerOptions<Words?>?,  val co
         )
         return WordsHolder(v)
     }
-    override fun onBindViewHolder(holder: WordsHolder, position: Int, model: Words) {
+    override fun onBindViewHolder(holder: WordsHolder, position: Int, model: Words  ) {
+
         holder.tv_words.text = model.english
-
-        val database = Utils.buildDatabase()
+        //Database
+        val db = Utils.buildDatabase()
         val dao = Utils.getDAO()
-        var favorite = ArrayList<Favorite>()
-        Log.d("favorites", favorite.toString())
-        var favWord = Favorite(model.english, model.turkish).favWordsEng
+        val favWord = Favorite(model.english, model.turkish).favWordsEng
+        val myId = dao.getId(favWord)
+        val favorite= db.favdao().getWordsFavorites()
 
+        val editor: SharedPreferences.Editor = context.getSharedPreferences(
+            "com.merttoptas.hukukengtrsozluk",
+            MODE_PRIVATE
+        ).edit()
 
-
-        var myId = dao.getId(favWord)
 
         holder.tv_fav_button.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener {
                 buttonView, isChecked ->
 
-            if(isChecked){
 
-                val favWords= Favorite(model.english, model.turkish)
-                Log.d("favoo", favWords.toString())
-                dao.insertWord(favWords)
-
-                database.close()
-
+            if(favorite.equals(myId)){
                 holder.tv_fav_button.isChecked = true
+                Log.d("deneme","tıklandı1")
 
-            }else{
-                dao.deleteById(myId)
-                database.close()
-                holder.tv_fav_button.isChecked = false
+
+            } else{
+                if(myId !=0){
+                    var myId = dao.getId(favWord)
+                    dao.deleteById(myId)
+                    db.close()
+                    Log.d("deneme","tıklandı2")
+
+                }
+
+
+
+                if(isChecked){
+
+                    val favWords= Favorite(model.english, model.turkish)
+                    dao.insertWord(favWords)
+                    db.close()
+
+                    editor.putBoolean("favTrue", true)
+                    editor.apply()
+                    Log.d("deneme","tıklandı3")
+
+                    holder.tv_fav_button.isChecked = true
+
+                }else{
+                    dao.deleteById(myId)
+                    db.close()
+                    holder.tv_fav_button.isChecked = false
+                    val editor: SharedPreferences.Editor = context.getSharedPreferences(
+                        "com.merttoptas.hukukengtrsozluk",
+                        MODE_PRIVATE
+                    ).edit()
+                    editor.putBoolean("NameOfThingToSave", false)
+                    editor.apply()
+                    Log.d("deneme","tıklandı4")
+
+                }
+
             }
 
         })
@@ -76,6 +111,8 @@ class WordsAdapter (@NonNull options: FirestoreRecyclerOptions<Words?>?,  val co
             tv_fav_button = itemView.findViewById(R.id.tv_fav_button)
         }
     }
+
+
 
 
 

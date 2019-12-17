@@ -33,6 +33,7 @@ class LearnWordsActivity : AppCompatActivity() {
         toolbar = findViewById(R.id.toolbar)
         toolbar!!.title = getString(R.string.word_learn)
         toolbar!!.subtitle = getString(R.string.learn_exercise)
+
         setSupportActionBar(toolbar)
         easyFlipView.isFlipOnTouch = true
 
@@ -89,7 +90,6 @@ class LearnWordsActivity : AppCompatActivity() {
                             GlobalScope.launch(context = Dispatchers.Main) {
                                 txtWord_cardfront.text = randomWords!!.english
 
-
                             }
                         }
                     }
@@ -107,5 +107,6 @@ class LearnWordsActivity : AppCompatActivity() {
         super.onStart()
         getData()
     }
+
 
 }
