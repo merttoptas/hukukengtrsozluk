@@ -1,7 +1,6 @@
 package com.merttoptas.hukukengtrsozluk.Fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +17,7 @@ class FavoriteFragment : Fragment() {
     lateinit var favorite : List<Favorite>
     val db = Utils.buildDatabase()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,8 +29,10 @@ class FavoriteFragment : Fragment() {
         val recyclerViewFav = view.findViewById<RecyclerView>(R.id.recyclerViewFav)
 
         Utils.setRecyclerView(context!!, recyclerViewFav)
-        recyclerViewFav.adapter?.notifyDataSetChanged()
-        recyclerViewFav.adapter =FavoriteWordsAdapter(favorite, this.context!!)
+        val adapter = FavoriteWordsAdapter(favorite, this.context!!)
+        recyclerViewFav.adapter =adapter
+        adapter.notifyDataSetChanged()
+
 
 
         return view
@@ -38,10 +40,10 @@ class FavoriteFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
         favorite = db.favdao().getWordsFavorites()
-        recyclerViewFav.adapter?.notifyDataSetChanged()
-        recyclerViewFav.adapter = FavoriteWordsAdapter(favorite, context!!)
+        val adapter = FavoriteWordsAdapter(favorite, this.context!!)
+        recyclerViewFav.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
     override fun onDestroy() {

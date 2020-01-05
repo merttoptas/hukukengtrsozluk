@@ -2,20 +2,13 @@ package com.merttoptas.hukukengtrsozluk.utilities
 
 import android.content.Context
 import android.content.Intent
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.Adapter
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.merttoptas.hukukengtrsozluk.Activity.WordsActivity
-import com.merttoptas.hukukengtrsozluk.R
-import com.merttoptas.hukukengtrsozluk.adapter.WordsAdapter
 import com.merttoptas.hukukengtrsozluk.db.AppDatabase
 import com.merttoptas.hukukengtrsozluk.db.FavDao
-import com.nicolettilu.hiddensearchwithrecyclerview.HiddenSearchWithRecyclerView
-import java.util.*
 
 abstract class Utils {
 

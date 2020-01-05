@@ -83,7 +83,6 @@ class LearnWordsActivity : AppCompatActivity() {
                             easyFlipView.isFlipOnTouch = true
 
                             GlobalScope.launch(context = Dispatchers.Main) {
-                                println("launched coroutine 1")
                                 delay(2000)
                                 txtWord_cardback.text = randomWords!!.turkish
                             }

@@ -1,19 +1,15 @@
 @file:Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 
 package com.merttoptas.hukukengtrsozluk.Activity
-import android.app.SearchManager
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.widget.Toast
-import androidx.appcompat.widget.SearchView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_words_activitiy.*
 import androidx.appcompat.widget.Toolbar
 import com.merttoptas.hukukengtrsozluk.Fragment.AboutUsFragment
 import com.merttoptas.hukukengtrsozluk.Fragment.FavoriteFragment
 import com.merttoptas.hukukengtrsozluk.Fragment.SearchFragment
+import com.merttoptas.hukukengtrsozluk.Fragment.WordsListFragment
 import com.merttoptas.hukukengtrsozluk.R
 
 class WordsActivity : AppCompatActivity() {
@@ -67,12 +63,22 @@ class WordsActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
 
-                R.id.navigationSearch -> {
+                R.id.navigationWords -> {
                     val fragment =
-                        SearchFragment()
+                        WordsListFragment()
                     supportFragmentManager.beginTransaction().replace(
                         R.id.container, fragment,
                         fragment.javaClass.simpleName
+                    ).commit()
+                    return@OnNavigationItemSelectedListener true
+                }
+
+                R.id.navigationSearch -> {
+
+                    val fragment =
+                        SearchFragment()
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.container, fragment, fragment.javaClass.simpleName
                     ).commit()
                     return@OnNavigationItemSelectedListener true
                 }
